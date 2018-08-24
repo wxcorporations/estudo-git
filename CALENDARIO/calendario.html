@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="contaner-calendario">
+        <section class="mes">
+            <span>Agosto</span>
+        </section>
+        <section class="semana-title">
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+        </section>
+        <section class="semana">
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+        </section>
+        <section class="semana">
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+        </section>
+        <section class="semana">
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+        </section>
+        <section class="semana">
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+        </section>
+        <section class="semana">
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+            <div class="dias"></div>
+        </section>
+    </div>
+
+    <script>
+        const dia =  prompt("digite um dia do mes");
+        let dia_semana = prompt("dia da semana");
+        let total_dias_mes = prompt("dia da semana");
+
+
+        function semana_atual(dia_mes){
+            let value = true , count = 1;
+
+            while(dia_mes - 7 > 0){
+                dia_mes = dia_mes - 7
+                console.log(dia_mes)
+                count ++;
+            }
+            return console.log(count);
+        }
+
+        function preenche_vetor_mes(_dia_mes, dia_semana , total_dias_mes){          
+            let total_dias_semana = 7 ;
+            let semana = semana_atual( _dia_mes ); 
+            let primeiro_dia_folha = dia_mes - (( semana - 1 ) * total_dias_semana + ( dia_semana - 1 )) ;
+
+            console.log("primeiro_dia_folha  = " + primeiro_dia_folha )
+            let mes = [];
+
+            // 1 = dom , 2 = deg 3 = ter , 4 = qua , 5 = qui , 6 = sexta , 7 = sab
+
+            console.log("Domingo : " + primeiro_dia_folha);
+            
+            for(var i=0; i < total_dias_mes ; i++){
+                primeiro_dia_folha <= 0 ? mes[i] = false  : mes[i] = primeiro_dia_folha ; 
+                primeiro_dia_folha ++;
+            }
+            return console.dir(mes) ;
+    
+        }
+
+
+
+
+
+
+        preenche_vetor_mes(dia, dia_semana , total_dias_mes);
+        semana_atual(dia);
+
+    </script>
+</body>
+</html>
+
+
+
+logica para preenchimento do calendario
+pegar total de dias do mes
+pegar a data atual e o dia da semana
+
+pega a data atual e subtrair por 7 n vezes, até que o resultado seja positivo
+
