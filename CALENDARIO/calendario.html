@@ -68,50 +68,40 @@
     </div>
 
     <script>
-        const dia =  prompt("digite um dia do mes");
-        let dia_semana = prompt("dia da semana");
-        let total_dias_mes = prompt("dia da semana");
-
+        const dia =  Number( prompt("digite um dia do mes") );
+        let dia_semana = Number( prompt("dia da semana") );
+        let total_dias_mes = Number( prompt("total de dias do mes") );
+        
+        alert("dia mes : " + typeof(dia) + "  dia semana : " + typeof(dia_semana) + " total dia mes  : " + typeof(total_dias_mes) )
 
         function semana_atual(dia_mes){
             let value = true , count = 1;
-
             while(dia_mes - 7 > 0){
                 dia_mes = dia_mes - 7
                 console.log(dia_mes)
                 count ++;
             }
-            return console.log(count);
+            return count;
         }
 
-        function preenche_vetor_mes(_dia_mes, dia_semana , total_dias_mes){          
-            let total_dias_semana = 7 ;
-            let semana = semana_atual( _dia_mes ); 
-            let primeiro_dia_folha = dia_mes - (( semana - 1 ) * total_dias_semana + ( dia_semana - 1 )) ;
-
-            console.log("primeiro_dia_folha  = " + primeiro_dia_folha )
-            let mes = [];
-
-            // 1 = dom , 2 = deg 3 = ter , 4 = qua , 5 = qui , 6 = sexta , 7 = sab
-
-            console.log("Domingo : " + primeiro_dia_folha);
+        function preenche_vetor_mes(_dia_mes, _dia_semana , _total_dias_mes){       
+            let mes = []; 
+            let semana_corrida = semana_atual( _dia_mes )
+            let inicio_calendario = (_dia_mes - ( semana_corrida * 7  + _dia_semana )) - (-1) ;
             
-            for(var i=0; i < total_dias_mes ; i++){
-                primeiro_dia_folha <= 0 ? mes[i] = false  : mes[i] = primeiro_dia_folha ; 
-                primeiro_dia_folha ++;
+            console.log("Domingo : " + inicio_calendario);
+            
+            while(inicio_calendario <= _total_dias_mes){
+                inicio_calendario <= 0 ? mes.push(false) : mes.push(inicio_calendario) ;
+                inicio_calendario ++ ;
             }
-            return console.dir(mes) ;
+            
+            return mes ;
     
         }
 
-
-
-
-
-
-        preenche_vetor_mes(dia, dia_semana , total_dias_mes);
+        console.log("Mes : " + preenche_vetor_mes(dia, dia_semana , total_dias_mes));
         semana_atual(dia);
-
     </script>
 </body>
 </html>
@@ -121,6 +111,3 @@
 logica para preenchimento do calendario
 pegar total de dias do mes
 pegar a data atual e o dia da semana
-
-pega a data atual e subtrair por 7 n vezes, até que o resultado seja positivo
-
